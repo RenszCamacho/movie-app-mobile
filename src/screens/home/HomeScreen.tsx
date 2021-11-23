@@ -3,20 +3,18 @@ import {Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import {styles} from './HomeTheme';
-import {CLIENT_ID} from '@env';
-// import movieDB from '../../api/movieDB';
+import movieDB from '../../api/movieDB';
 
 const HomeScreen = () => {
   const {container, title, button, buttonText} = styles;
   const navigation = useNavigation();
 
   useEffect(() => {
-    console.log(CLIENT_ID);
-    // const fetchData = async () => {
-    //   const response = await movieDB.get('/now_playing');
-    //   console.log(response.data);
-    // };
-    // fetchData();
+    const fetchData = async () => {
+      const response = await movieDB.get('/now_playing');
+      console.log(response.data);
+    };
+    fetchData();
   }, []);
 
   return (
