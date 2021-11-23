@@ -5,14 +5,16 @@ import {useNavigation} from '@react-navigation/native';
 import {styles} from './HomeTheme';
 import movieDB from '../../api/movieDB';
 
+import {MoviesResponse} from '../../types/movie.interface';
+
 const HomeScreen = () => {
   const {container, title, button, buttonText} = styles;
   const navigation = useNavigation();
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await movieDB.get('/now_playing');
-      console.log(response.data);
+      const {data} = await movieDB.get<MoviesResponse>('/now_playing');
+      console.log(data.results[0].title);
     };
     fetchData();
   }, []);
