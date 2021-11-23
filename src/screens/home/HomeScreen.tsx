@@ -1,12 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 
 import {styles} from './HomeTheme';
+import movieDB from '../../api/movieDB';
 
 const HomeScreen = () => {
   const {container, title, button, buttonText} = styles;
   const navigation = useNavigation();
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await movieDB.get('/now_playing');
+      console.log(response.data);
+    };
+    fetchData();
+  }, []);
 
   return (
     <View style={container}>
