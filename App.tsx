@@ -1,13 +1,16 @@
 import React from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import {StyleSheet, Text, View} from 'react-native';
 
 export default function App() {
   const {container, title} = styles;
 
   return (
-    <View style={container}>
-      <Text style={title}>Hola</Text>
-    </View>
+    <NavigationContainer>
+      <View style={container}>
+        <Text style={title}>Hello World</Text>
+      </View>
+    </NavigationContainer>
   );
 }
 
