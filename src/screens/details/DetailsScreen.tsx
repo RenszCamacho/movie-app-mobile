@@ -16,7 +16,7 @@ export default function DetailsScreen() {
       <TouchableOpacity
         onPress={() => navigate('HomeScreen' as never, {} as never)}
         style={button}>
-        <Text style={buttonText}>Go to Details</Text>
+        <Text style={buttonText}>Go Home</Text>
       </TouchableOpacity>
     </View>
   );
