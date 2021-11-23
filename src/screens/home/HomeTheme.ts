@@ -22,4 +22,8 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
   },
+  isLoadingWrapper: {
+    flex: 1,
+    justifyContent: 'center',
+  },
 });
