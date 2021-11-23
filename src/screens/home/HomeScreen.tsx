@@ -1,13 +1,23 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
+
 import useMovies from '../../hooks/useMovies';
+import {styles} from './HomeTheme';
 
 const HomeScreen = () => {
-  const {container, title, button, buttonText, navigate, movies} = useMovies(
-    [],
-  );
+  const {container, title, button, buttonText, isLoadingWrapper} = styles;
+  const {navigate, movies, isLoading} = useMovies([]);
 
-  console.log(movies);
+  console.log(movies[1]?.title);
+
+  if (isLoading) {
+    return (
+      <View style={isLoadingWrapper}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  }
+
   return (
     <View style={container}>
       <Text style={title}>Home</Text>
