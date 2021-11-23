@@ -1,3 +1,4 @@
 declare module '@env' {
-  export const CLIENT_ID: string;
+  export const BASE_API: string;
+  export const API_KEY: string;
 }
