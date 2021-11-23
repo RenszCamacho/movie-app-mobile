@@ -8,7 +8,12 @@ const Stack = createStackNavigator();
 
 export default function Navigation() {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+        cardStyle: {backgroundColor: '#fff'},
+        gestureEnabled: true,
+      }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
       <Stack.Screen name="DetailsScreen" component={DetailsScreen} />
     </Stack.Navigator>
