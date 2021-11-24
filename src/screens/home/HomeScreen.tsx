@@ -1,8 +1,8 @@
 import React from 'react';
 import {ActivityIndicator, ScrollView, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import ListCarousel from '../../components/list-carousel/ListCarousel';
 
+import ListCarousel from '../../components/list-carousel/ListCarousel';
 import MainCarousel from '../../components/main-carousel/MainCarousel';
 import useMovies from '../../hooks/useMovies';
 import {styles} from './HomeTheme';

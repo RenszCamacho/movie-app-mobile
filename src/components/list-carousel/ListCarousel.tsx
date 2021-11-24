@@ -23,6 +23,7 @@ export default function ListCarousel({movies, title}: Props) {
         )}
         keyExtractor={item => item.id.toString()}
         horizontal
+        showsHorizontalScrollIndicator={false}
       />
     </View>
   );

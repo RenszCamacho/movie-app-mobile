@@ -1,6 +1,7 @@
 import React from 'react';
 import {Dimensions, View} from 'react-native';
 import Carousel from 'react-native-snap-carousel';
+
 import {Movies} from '../../types/movie.interface';
 import Poster from '../poster/Poster';
 import {styles} from './MainCarouselTheme';
@@ -20,6 +21,7 @@ export default function MainCarousel({movies}: Props) {
         renderItem={({item}: any) => <Poster movies={item} />}
         sliderWidth={windowWidth}
         itemWidth={250}
+        inactiveSlideOpacity={0.9}
       />
     </View>
   );
