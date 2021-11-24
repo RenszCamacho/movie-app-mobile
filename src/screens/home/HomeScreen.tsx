@@ -1,16 +1,14 @@
 import React from 'react';
-import {ActivityIndicator, Dimensions, View} from 'react-native';
+import {ActivityIndicator, ScrollView, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import Carousel from 'react-native-snap-carousel';
+import ListCarousel from '../../components/list-carousel/ListCarousel';
 
-import Poster from '../../components/Poster';
+import MainCarousel from '../../components/main-carousel/MainCarousel';
 import useMovies from '../../hooks/useMovies';
 import {styles} from './HomeTheme';
 
-const {width: windowWidth} = Dimensions.get('window');
-
 const HomeScreen = () => {
-  const {isLoadingWrapper, carouselWrapper} = styles;
+  const {isLoadingWrapper} = styles;
   const {movies, isLoading} = useMovies([]);
   const {top} = useSafeAreaInsets();
 
@@ -27,16 +25,12 @@ const HomeScreen = () => {
   }
 
   return (
-    <View style={styleSafeAreaTop}>
-      <View style={carouselWrapper}>
-        <Carousel
-          data={movies}
-          renderItem={({item}: any) => <Poster movies={item} />}
-          sliderWidth={windowWidth}
-          itemWidth={250}
-        />
+    <ScrollView>
+      <View style={styleSafeAreaTop}>
+        <MainCarousel movies={movies} />
+        <ListCarousel movies={movies} title="Now" />
       </View>
-    </View>
+    </ScrollView>
   );
 };
 

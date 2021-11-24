@@ -5,7 +5,4 @@ export const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
   },
-  carouselWrapper: {
-    height: 450,
-  },
 });
