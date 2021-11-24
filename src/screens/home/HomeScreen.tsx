@@ -1,14 +1,22 @@
 import React from 'react';
-import {ActivityIndicator, Text, TouchableOpacity, View} from 'react-native';
+import {ActivityIndicator, Dimensions, View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import Carousel from 'react-native-snap-carousel';
+import Poster from '../../components/Poster';
 
 import useMovies from '../../hooks/useMovies';
 import {styles} from './HomeTheme';
 
-const HomeScreen = () => {
-  const {container, title, button, buttonText, isLoadingWrapper} = styles;
-  const {navigate, movies, isLoading} = useMovies([]);
+const {width: windowWidth} = Dimensions.get('window');
 
-  console.log(movies[1]?.title);
+const HomeScreen = () => {
+  const {isLoadingWrapper} = styles;
+  const {movies, isLoading} = useMovies([]);
+  const {top} = useSafeAreaInsets();
+
+  const styleSafeAreaTop = {
+    marginTop: top + 20,
+  };
 
   if (isLoading) {
     return (
@@ -19,14 +27,13 @@ const HomeScreen = () => {
   }
 
   return (
-    <View style={container}>
-      <Text style={title}>Home</Text>
-
-      <TouchableOpacity
-        onPress={() => navigate('DetailsScreen' as never, {} as never)}
-        style={button}>
-        <Text style={buttonText}>Go to Details</Text>
-      </TouchableOpacity>
+    <View style={styleSafeAreaTop}>
+      <Carousel
+        data={movies}
+        renderItem={({item}: any) => <Poster movies={item} />}
+        sliderWidth={windowWidth}
+        itemWidth={250}
+      />
     </View>
   );
 };
