@@ -2,14 +2,24 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    width: '100%',
   },
-  text: {
-    fontSize: 50,
-    fontWeight: 'bold',
+  imageWrapper: {
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 9,
+    },
+    shadowOpacity: 0.24,
+    shadowRadius: 7,
+
+    elevation: 10,
+    borderBottomLeftRadius: 20,
+    borderBottomRightRadius: 20,
+    overflow: 'hidden',
+  },
+  image: {
+    flex: 1,
   },
   button: {
     marginTop: 20,
