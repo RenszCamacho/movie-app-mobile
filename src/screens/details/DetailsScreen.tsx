@@ -1,5 +1,12 @@
 import React from 'react';
-import {Dimensions, Image, Text, TouchableOpacity, View} from 'react-native';
+import {
+  Dimensions,
+  Image,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import {URL_BASE_IMAGE} from '@env';
 
@@ -23,14 +30,16 @@ export default function DetailsScreen({route}: Props) {
   };
 
   return (
-    <View style={container}>
-      <View style={customImageWraper}>
-        <Image source={{uri}} style={image} />
-      </View>
+    <ScrollView>
+      <View style={container}>
+        <View style={customImageWraper}>
+          <Image source={{uri}} style={image} />
+        </View>
 
-      <TouchableOpacity onPress={() => goBack()} style={button}>
-        <Text style={buttonText}>Go Home</Text>
-      </TouchableOpacity>
-    </View>
+        <TouchableOpacity onPress={() => goBack()} style={button}>
+          <Text style={buttonText}>Go Home</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
 }
