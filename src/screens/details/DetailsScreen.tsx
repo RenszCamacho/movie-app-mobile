@@ -1,9 +1,9 @@
 import React from 'react';
 import {Text, TouchableOpacity, View} from 'react-native';
+import {StackScreenProps} from '@react-navigation/stack';
 import {useNavigation} from '@react-navigation/native';
 
 import {styles} from './DetailsTheme';
-import {StackScreenProps} from '@react-navigation/stack';
 import {RootStackParamList} from '../../navigation/Navigation';
 
 interface Props extends StackScreenProps<RootStackParamList, 'DetailsScreen'> {}
