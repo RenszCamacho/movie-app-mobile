@@ -26,7 +26,7 @@ export default function Poster({
 
   return (
     <TouchableOpacity
-      onPress={() => navigate('DetailsScreen' as never, {} as never)}
+      onPress={() => navigate('DetailsScreen' as never, movies as never)}
       activeOpacity={0.9}
       style={imageWraper}>
       <View style={boxShadow}>
