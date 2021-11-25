@@ -9,7 +9,8 @@ import {styles} from './HomeTheme';
 
 const HomeScreen = () => {
   const {isLoadingWrapper} = styles;
-  const {movies, isLoading} = useMovies([]);
+  const {nowPlaying, popularMovies, topRated, upComing, isLoading} =
+    useMovies();
   const {top} = useSafeAreaInsets();
 
   const styleSafeAreaTop = {
@@ -27,8 +28,10 @@ const HomeScreen = () => {
   return (
     <ScrollView>
       <View style={styleSafeAreaTop}>
-        <MainCarousel movies={movies} />
-        <ListCarousel movies={movies} title="Now" />
+        <MainCarousel movies={nowPlaying} />
+        <ListCarousel movies={topRated} title="Top Rated" />
+        <ListCarousel movies={popularMovies} title="Popular Movies" />
+        <ListCarousel movies={upComing} title="Up Coming" />
       </View>
     </ScrollView>
   );

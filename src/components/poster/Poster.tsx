@@ -1,7 +1,8 @@
 import React from 'react';
-import {Image, View} from 'react-native';
-import {Movies} from '../../types/movie.interface';
+import {Image, View, TouchableOpacity} from 'react-native';
 import {URL_BASE_IMAGE} from '@env';
+
+import {Movies} from '../../types/movie.interface';
 import {styles} from './PosterTheme';
 
 interface Props {
@@ -22,10 +23,10 @@ export default function Poster({
   const uri = `${URL_BASE_IMAGE}/${movies.poster_path}`;
 
   return (
-    <View style={imageWraper}>
+    <TouchableOpacity activeOpacity={0.9} style={imageWraper}>
       <View style={boxShadow}>
         <Image source={{uri}} style={image} />
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }

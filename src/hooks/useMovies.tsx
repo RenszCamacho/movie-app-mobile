@@ -11,10 +11,16 @@ interface MoviesState {
   upComing: Movies[];
 }
 
-export default function useMovies(initialState: MoviesState) {
+export default function useMovies() {
   const {navigate} = useNavigation();
-  const [movies, setMovies] = useState(initialState);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [movies, setMovies] = useState<MoviesState>({
+    nowPlaying: [],
+    popularMovies: [],
+    topRated: [],
+    upComing: [],
+  });
 
   const fetchData = async () => {
     const nowPlayingPromise = movieDB.get<MoviesResponse>('/now_playing');

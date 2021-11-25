@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
       height: 5,
     },
     shadowOpacity: 0.34,
-    shadowRadius: 7,
+    shadowRadius: 3,
 
     elevation: 10,
   },
