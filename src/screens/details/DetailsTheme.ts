@@ -1,10 +1,11 @@
-import {StyleSheet} from 'react-native';
+import {Dimensions, StyleSheet} from 'react-native';
+
+const {height} = Dimensions.get('screen');
 
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-  },
-  imageWrapper: {
+    height: height * 0.7,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -13,23 +14,18 @@ export const styles = StyleSheet.create({
     shadowOpacity: 0.24,
     shadowRadius: 7,
 
-    elevation: 10,
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    elevation: 2,
+
+    borderBottomEndRadius: 25,
+    borderBottomStartRadius: 25,
+  },
+  imageWrapper: {
+    flex: 1,
+    borderBottomEndRadius: 25,
+    borderBottomStartRadius: 25,
     overflow: 'hidden',
   },
   image: {
     flex: 1,
-  },
-  button: {
-    marginTop: 20,
-    padding: 20,
-    backgroundColor: '#4286f4',
-    borderRadius: 10,
-  },
-  buttonText: {
-    fontSize: 20,
-    color: '#fff',
-    fontWeight: 'bold',
   },
 });
