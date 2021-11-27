@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
+import Icon from 'react-native-vector-icons/Ionicons';
 import {StackScreenProps} from '@react-navigation/stack';
 import {URL_BASE_IMAGE} from '@env';
 
@@ -26,11 +27,13 @@ export default function DetailsScreen({route}: Props) {
         <View style={imageWrapper}>
           <Image source={{uri}} style={image} />
         </View>
-
-        <View style={detailsWrapper}>
-          <Text style={originalTitle}>{original_title}</Text>
-          <Text style={detailsTitle}>{title}</Text>
-        </View>
+      </View>
+      <View style={detailsWrapper}>
+        <Text style={originalTitle}>{original_title}</Text>
+        <Text style={detailsTitle}>{title}</Text>
+      </View>
+      <View style={detailsWrapper}>
+        <Icon name="star-outline" size={24} color="#ffd700" />
       </View>
     </ScrollView>
   );
