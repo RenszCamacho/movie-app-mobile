@@ -28,4 +28,15 @@ export const styles = StyleSheet.create({
   image: {
     flex: 1,
   },
+  detailsWrapper: {
+    margin: 20,
+  },
+  originalTitle: {
+    opacity: 0.7,
+    fontSize: 14,
+  },
+  detailsTitle: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  },
 });
