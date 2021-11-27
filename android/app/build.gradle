@@ -1,5 +1,9 @@
 apply plugin: "com.android.application"
 
+project.ext.vectoricons = [
+  iconFontNames: ['Ionicons.ttf']
+]
+
 import com.android.build.OutputFile
 
 /**
