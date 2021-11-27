@@ -21,7 +21,7 @@ export default function Poster({
 }: Props) {
   const {boxShadow, image} = styles;
   const imageWraper = {height, width, marginHorizontal};
-  const uri = `${URL_BASE_IMAGE}/${movies.poster_path}`;
+  const uri = `${URL_BASE_IMAGE}${movies.poster_path}`;
   const {navigate} = useNavigation();
 
   return (

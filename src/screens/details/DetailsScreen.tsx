@@ -1,34 +1,37 @@
 import React from 'react';
-import {Text, TouchableOpacity, View} from 'react-native';
+import {Image, ScrollView, Text, View} from 'react-native';
 import {StackScreenProps} from '@react-navigation/stack';
-import {useNavigation} from '@react-navigation/native';
+import {URL_BASE_IMAGE} from '@env';
 
-import {styles} from './DetailsTheme';
 import {RootStackParamList} from '../../navigation/Navigation';
+import {styles} from './DetailsTheme';
 
 interface Props extends StackScreenProps<RootStackParamList, 'DetailsScreen'> {}
 
 export default function DetailsScreen({route}: Props) {
-  const {container, text, button, buttonText} = styles;
-  const {navigate} = useNavigation();
-  const {title, id} = route.params;
-
-  console.log(title, id);
+  const {
+    container,
+    image,
+    imageWrapper,
+    detailsWrapper,
+    detailsTitle,
+    originalTitle,
+  } = styles;
+  const {poster_path, original_title, title} = route.params;
+  const uri = `${URL_BASE_IMAGE}${poster_path}`;
 
   return (
-    <View style={container}>
-      <Text style={text}>Details</Text>
+    <ScrollView>
+      <View style={container}>
+        <View style={imageWrapper}>
+          <Image source={{uri}} style={image} />
+        </View>
 
-      <TouchableOpacity
-        onPress={() => navigate('HomeScreen' as never, {} as never)}
-        style={button}>
-        <Text style={buttonText}>Go Home</Text>
-      </TouchableOpacity>
-
-      <View>
-        <Text>{title}</Text>
-        <Text>{id}</Text>
+        <View style={detailsWrapper}>
+          <Text style={originalTitle}>{original_title}</Text>
+          <Text style={detailsTitle}>{title}</Text>
+        </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
