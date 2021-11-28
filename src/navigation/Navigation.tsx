@@ -17,7 +17,6 @@ export default function Navigation() {
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
-        cardStyle: {backgroundColor: '#fff'},
         gestureEnabled: true,
       }}>
       <Stack.Screen name="HomeScreen" component={HomeScreen} />
